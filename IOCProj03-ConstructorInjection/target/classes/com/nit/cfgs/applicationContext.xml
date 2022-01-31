@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--spring bean cfgs -->
+
+	<bean id="dt1" class="java.util.Date">
+		<property name="year" value="110"/>  <!-- Adds 1900 to given year so it becomes 2010 -->
+		<property name="month" value="4"/>  <!-- 0 to 11 -->
+		<property name="date" value="20"/>  <!-- 1 to 31st -->
+	</bean>
+
+	<bean id="dt" class="java.util.Date" />  <!-- Dependent class -->
+
+	<bean id="wmg" class="com.nit.beans.WishMessageGenerator"> <!-- Target class -->
+		<property name="date1" ref="dt1" />
+		<constructor-arg name="dat" ref="dt" />  <!-- Constructor Injection -->
+	</bean>
+
+</beans>
