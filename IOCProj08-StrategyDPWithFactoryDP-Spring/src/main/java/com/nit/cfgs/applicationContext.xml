@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Configure Dependent Classes -->
+	<bean id="dtdc" class="com.nit.comp.DTDC" />
+	<bean id="dhl" class="com.nit.comp.DHL" />
+	<bean id="bdart" class="com.nit.comp.BlueDart" />
+
+	<!-- Configure Target class -->
+	<bean id="fpkt" class="com.nit.comp.Flipkart">
+		<property name="courier" ref="dtdc"/>
+	</bean>
+</beans>
